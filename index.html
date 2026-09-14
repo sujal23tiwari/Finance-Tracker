@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pennywise — Personal Finance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">P</span>Pennywise</a>
+      <nav>
+        <a class="nav-item active" href="#dashboard">⌘ <span>Dashboard</span></a>
+        <a class="nav-item" href="#transactions">↕ <span>Transactions</span></a>
+        <a class="nav-item" href="#budgets">◔ <span>Budgets</span></a>
+        <a class="nav-item" href="#goals">◎ <span>Goals</span></a>
+        <a class="nav-item" href="#insights">✦ <span>Insights</span></a>
+      </nav>
+      <div class="sidebar-bottom"><a class="nav-item" href="#settings">⚙ <span>Settings</span></a><div class="upgrade"><span>✦</span><div><b>Go premium</b><small>Unlock smart insights</small></div></div></div>
+    </aside>
+    <main id="dashboard">
+      <header><button class="menu" aria-label="Open menu">☰</button><div><p class="eyebrow">MONDAY, SEPTEMBER 8</p><h1>Good morning, Sujal <span>✦</span></h1></div><div class="header-actions"><label class="search">⌕ <input id="search" placeholder="Search transactions" /></label><button class="icon-btn" aria-label="Notifications">♧</button><div class="avatar">S</div></div></header>
+      <section class="stats">
+        <article class="stat-card balance"><div class="stat-top"><span>Total balance</span><span class="card-icon">₹</span></div><strong id="totalBalance">₹ 0</strong><p><b id="balanceChange">+0%</b> from last month</p><div class="sparkline"><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>Monthly income</span><span class="card-icon green">↗</span></div><strong id="income">₹ 0</strong><p><b>+12.8%</b> from last month</p><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>Monthly expenses</span><span class="card-icon pink">↘</span></div><strong id="expenses">₹ 0</strong><p><b class="pink-text">+4.6%</b> from last month</p><div class="mini-bars expense"><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>Savings rate</span><span class="card-icon purple">◌</span></div><strong id="savingsRate">0%</strong><p><b>+2.4%</b> from last month</p><div class="rate"><i id="rateBar"></i></div></article>
+      </section>
+      <section class="grid-primary">
+        <article class="panel cashflow"><div class="panel-head"><div><h2>Cash flow</h2><p>Income and spending overview</p></div><select><option>Last 6 months</option></select></div><div class="legend"><span><i class="legend-income"></i>Income</span><span><i class="legend-expense"></i>Expenses</span></div><div class="chart"><div class="yaxis"><span>₹80k</span><span>₹60k</span><span>₹40k</span><span>₹20k</span><span>₹0</span></div><svg viewBox="0 0 650 250" preserveAspectRatio="none" aria-label="Cash flow chart"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#b7f36b" stop-opacity=".32"/><stop offset="1" stop-color="#b7f36b" stop-opacity="0"/></linearGradient></defs><path d="M0 178 C55 153 70 165 110 127 S175 147 220 106 S290 127 330 86 S405 113 440 63 S515 91 550 47 S615 54 650 22 L650 250 L0 250Z" fill="url(#area)"/><path d="M0 178 C55 153 70 165 110 127 S175 147 220 106 S290 127 330 86 S405 113 440 63 S515 91 550 47 S615 54 650 22" fill="none" stroke="#b7f36b" stroke-width="4"/><path d="M0 213 C48 191 78 206 110 187 S182 207 220 175 S285 197 330 166 S397 187 440 153 S510 178 550 139 S605 164 650 126" fill="none" stroke="#f393a5" stroke-width="4" stroke-dasharray="7 8"/></svg><div class="months"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div></div></article>
+        <article class="panel spending"><div class="panel-head"><div><h2>Spending</h2><p>By category this month</p></div><button class="more">•••</button></div><div class="donut"><div><b id="spendCenter">₹ 0</b><small>Total spent</small></div></div><ul class="categories" id="categories"></ul></article>
+      </section>
+      <section class="grid-secondary"><article class="panel transactions" id="transactions"><div class="panel-head"><div><h2>Recent transactions</h2><p>Your latest activity</p></div><button class="text-button">View all →</button></div><div class="transaction-list" id="transactionList"></div></article><article class="panel budgets" id="budgets"><div class="panel-head"><div><h2>Monthly budgets</h2><p>Keep your spending on track</p></div><button class="more">•••</button></div><div id="budgetList"></div></article></section>
+    </main>
+    <button class="add-button" id="openModal">＋ <span>Add transaction</span></button>
+    <div class="modal-wrap" id="modal"><form class="modal"><button class="close" type="button" id="closeModal">×</button><h2>Add transaction</h2><p>Record your latest financial activity.</p><div class="type-toggle"><label><input type="radio" name="type" value="expense" checked /> Expense</label><label><input type="radio" name="type" value="income" /> Income</label></div><label>Merchant<input required name="merchant" placeholder="e.g. Spotify" /></label><div class="form-row"><label>Amount<input required name="amount" type="number" min="1" placeholder="0" /></label><label>Category<select name="category"><option>Food & Dining</option><option>Shopping</option><option>Transport</option><option>Bills & Utilities</option><option>Entertainment</option><option>Salary</option><option>Other</option></select></label></div><label>Date<input required name="date" type="date" /></label><button class="save" type="submit">Save transaction</button></form></div>
+    <script src="app.js"></script>
+  </body>
+</html>
